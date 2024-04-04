@@ -5,7 +5,6 @@ using System.Linq;
 
 public class SupportController : Controller
 {
-    // A static list to hold our support requests in memory
     private static List<SupportRequest> _requests = new List<SupportRequest>();
     private static int _nextId = 1;
     
@@ -14,7 +13,6 @@ public class SupportController : Controller
         _requests ??= new List<SupportRequest>();
     }
 
-    // Display the form for submitting support requests
     public IActionResult Index()
     {
         return View();
@@ -34,11 +32,9 @@ public class SupportController : Controller
             _requests.Remove(request);
         }
         
-        // Redirect to the view that lists all requests, updating the list
         return RedirectToAction("ViewAllRequests");
     }
 
-    // Handle the form submission and add the new request to our list
     [HttpPost]
     public IActionResult SubmitSupportRequest(string problemBody, string deadline)
     {
@@ -58,7 +54,6 @@ public class SupportController : Controller
        return RedirectToAction("ViewAllRequests"); 
     }
 
-    // List all the support requests
     public IActionResult ViewAllRequests()
     {
         return View(_requests);
