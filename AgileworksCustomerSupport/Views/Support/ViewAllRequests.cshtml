@@ -1,0 +1,44 @@
+@model IEnumerable<SupportRequest>
+
+@{
+    ViewBag.Title = "View All Support Requests";
+    
+    // Let's render these server-side so we don't calculate every time in for loop
+    var tallinnZone = TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"); 
+    var currentTimeInTallinn = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tallinnZone);
+}
+
+<div class="container my-4">
+    <h2 class="mb-4 text-center">All Support Requests</h2>
+    @if (TempData["ConfirmationMessage"] != null)
+    {
+        <div class="alert alert-success mb-4" role="alert" style="display: table; margin: 0 auto;">
+            @TempData["ConfirmationMessage"]
+        </div>
+    }
+    <div class="d-flex flex-wrap justify-content-center align-content-center">
+        @foreach (var request in Model)
+        {
+            var timeLeft = request.Deadline - currentTimeInTallinn;
+            var critical = timeLeft.TotalHours <= 1;
+            var timeLeftWoSec = new TimeSpan(timeLeft.Days, timeLeft.Hours, timeLeft.Minutes, 0);
+            var formattedTimeLeft = $"{timeLeftWoSec.Days}d {timeLeftWoSec.Hours}h {timeLeftWoSec.Minutes}m";
+            <div class="col-md-4 mb-4">
+                <div class="card" style="@(critical ? "border-color: red; color: red;" : "")">
+                    <div class="card-body" style="@(critical ? "border-color: red; color;" : "")">
+                        <h5 class="card-title">Request # @request.Id</h5>
+                        <p class="card-text">@request.Body</p>
+                        <p class="card-text">Time left: @formattedTimeLeft</p>
+                        <p class="card-text">Deadline: @request.Deadline.ToString("g")</p>
+                        <p class="card-text">Submitted on: @request.SubmissionDate.ToString("g")</p>
+                        <form method="post" action="/Support/DeleteRequest">
+                            <input type="hidden" name="id" value="@request.Id"/>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

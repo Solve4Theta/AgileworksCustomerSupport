@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileworksCustomerSupport", "AgileworksCustomerSupport\AgileworksCustomerSupport.csproj", "{0241E648-9395-45A6-B330-449DF3715ADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerSupportTests", "CustomerSupportTests\CustomerSupportTests.csproj", "{1BCCB367-C486-43A7-B088-FC64A3EB797E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0241E648-9395-45A6-B330-449DF3715ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0241E648-9395-45A6-B330-449DF3715ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0241E648-9395-45A6-B330-449DF3715ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0241E648-9395-45A6-B330-449DF3715ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BCCB367-C486-43A7-B088-FC64A3EB797E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BCCB367-C486-43A7-B088-FC64A3EB797E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BCCB367-C486-43A7-B088-FC64A3EB797E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BCCB367-C486-43A7-B088-FC64A3EB797E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
