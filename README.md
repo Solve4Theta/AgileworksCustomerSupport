@@ -2,7 +2,7 @@
 
 The application enables the user to submit customer support requests and their respective deadlines. Additionally, the user can view all submitted requests and mark them as "done", which will remove the request from the submitted requests. If the deadline for a request has passed, or it is in less than an hour, the request will be displayed in red color. 
 
-For the sake of simplicity and in order to ensure the structural integrity of the program, the user can only enter the deadline date via a GUI calendar and not via the keyboard.
+For the sake of simplicity in terms of UX and in order to ensure the structural integrity of the program, the user can only enter the deadline date via a GUI calendar and not via the keyboard.
 
 To run this project, it is necessary to have a suitable .NET SDK installed depending on your OS. Additionally, JetBrains Rider or MS Visual Studio are good IDE-s for running the project.
 
